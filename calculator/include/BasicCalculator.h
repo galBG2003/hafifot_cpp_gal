@@ -18,7 +18,7 @@ public:
     virtual ~BasicCalculator() = default;
 
     /**
-     * @brief Evaluates an infix expression string using the shunting-yard algorithm.
+     * @explanation Evaluates an infix expression string using the shunting-yard algorithm.
      * @param expression The expression to evaluate (e.g. "3 + 4 * 2").
      * @return Result of the expression as type T.
      * @throws std::runtime_error if the expression is malformed or division by zero occurs.
@@ -38,7 +38,7 @@ protected:
     }
 
     /**
-     * @brief Reads a number literal from the expression starting at index.
+     * @explanation Reads a number literal from the expression starting at index.
      * @param expression The full expression string being parsed.
      * @param index Current position in the expression, pointing at the first digit.
      * @return The parsed number as type T.
@@ -47,17 +47,14 @@ protected:
     virtual T parseValue(const std::string& expression, int& index);
 
     /**
-     * @brief Pops the top operator and applies it to the top value/values on the value stack.
+     * @explanation Pops the top operator and applies it to the top value/values on the value stack.
      * @param values Stack of operands.
      * @param operations Stack of operator tokens.
      * @throws std::runtime_error if either stack has insufficient elements.
      */
     virtual void applyTopOp(std::stack<T>& values, std::stack<std::string>& operations);
     /**
-     * @brief Tries to match the longest registered operator token at position index.
-     *        Since operator maps use string keys, single-char operators like '+' are
-     *        stored as "+" and multi-char keywords like "sqrt" are stored as "sqrt" —
-     *        no pre-pass normalisation is needed.
+     * @explanation Tries to match the longest registered operator token at position index.
      * @param expr The expression being parsed.
      * @param index Current position to match from.
      * @return The matched token string, or "" if no token matches.
@@ -68,7 +65,4 @@ private:
     std::map<std::string, std::function<T(T, T)>> binOps_;
     std::map<std::string, std::function<T(T)>>    unaryOps_;
     std::map<std::string, int>                    precedence_;
-
-    
-    
 };
