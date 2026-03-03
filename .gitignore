@@ -39,3 +39,21 @@
 
 # debug information files
 *.dwo
+
+*.ivsidx
+*.suo
+*.json
+*.db
+*.opendb
+*.ipch
+*.sln
+*.vcxproj
+*.exe/
+*.log
+*.tlog
+*.vsidx
+*.vs/
+*.idb
+*.vcxproj.user
+*.exe.recipe
+*.vcxproj.filters
